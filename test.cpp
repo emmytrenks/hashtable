@@ -1,7 +1,14 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "hashtable.hpp"
 
 int main(int argc, char **argv) {
-  Hashtable<int> test(10);
-  test.insert(5);
+  srand(time(nullptr));
+  Hashtable<int> test;
+  for (auto i = 0; i < 100; ++i) {
+    test.insert(rand());
+  }
+  std::cout << "Inserted " << test.size() << " unique values." << std::endl;
   return 0;
 }
