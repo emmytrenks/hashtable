@@ -30,15 +30,17 @@ public:
     --count;
   }
 
+  int size() { return count; }
+
+private:
   void rehash() {
     std::vector<T> temp;
     for (auto &v : buckets) for (auto t : v) temp.push_back(t);
-    for (auto &v : buckets) v.clear();
+    for (auto t : temp) remove(t);
     buckets.resize(buckets.size() * 2);
     for (auto t : temp) insert(t);
   }
 
-private:
   inline int hash(const T &t) { return t % buckets.size(); }
 };
 
