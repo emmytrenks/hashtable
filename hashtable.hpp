@@ -11,6 +11,7 @@ private:
   int count;
   std::vector<std::vector<T>> buckets;
 public:
+  Hashtable() : Hashtable(101) { }
   Hashtable(const int &buckets) : count(0) {
     this->buckets.resize(std::max(1, buckets));
   }
